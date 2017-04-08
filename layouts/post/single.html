@@ -1,0 +1,30 @@
+{{ partial "structure/head" . }}
+
+<main>
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <aside class="meta">
+        <p class="date">{{ .Date.Format "2006 January 01" }}</p>
+        {{ with .Params.blurb }}<p class="blurb">{{ . }}</p>{{ end }}
+        <p class="reading-time">{{ .ReadingTime }} minute read</p>
+    </aside>
+    <section>
+      <div class="content">
+        {{ .Content }}
+      </div>
+    </section>
+    <footer>
+      <amp-img class="author-image" src="{{ $.Param "authorImage" }}" height="72" width="72">
+        <noscript>
+          <img class="author-image" src="{{ $.Param "authorImage" }}" height="72" width="72" />
+        </noscript>
+      </amp-img>
+      <h2 class="author-name">{{ $.Param "authorName" }}</h2>
+      <p class="author-bio">{{ $.Param "authorBio" | safeHTML }}</p>
+    </footer>
+  </article>
+</main>
+
+{{ partial "structure/foot" . }}

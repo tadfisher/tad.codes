@@ -1,0 +1,47 @@
+{{ if ne .Params.amp.enable false }}
+
+<!DOCTYPE html>
+<!--[if lt IE 8 ]><html {{ if isset $.Site.Params "amp" }}amp{{ end }} lang="en" class="no-js oldie"><![endif]-->
+<!--[if IE 8 ]><html {{ if isset $.Site.Params "amp" }}amp{{ end }} lang="en" class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html {{ if isset $.Site.Params "amp" }}amp{{ end }} lang="en" class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html {{ if isset $.Site.Params "amp" }}amp{{ end }} lang="{{ with $.Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}" class="no-js"><!--<![endif]-->
+<head>
+  <title>{{ .Title }}</title>
+  <meta charset="utf-8">
+
+  {{ partial "amp/header" . }}
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Roboto+Mono|Material+Icons" />
+
+  <link rel="canonical" href="{{ .Permalink }}" />
+
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="144x144" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+
+  {{ if .RSSLink }}
+  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+  {{ end }}
+
+  <meta name="theme-color" content="{{ $.Site.Params.themeColor }}" />
+
+  {{ partial "seo/main" . }}
+</head>
+
+<body>
+{{ if isset $.Site.Params "ampmanifest" }}
+{{ with $.Site.Data.app.banner }}{{ partial "amp/app-banner" . }}{{ end }}
+{{ end }}
+
+{{ else }}
+{{ partial "structure/head.no-amp" . }}
+{{ end }}
+
+  <header>
+    {{ if .IsPage }}
+    <a class="back material-icons" aria-label="Back" href="{{ .Site.BaseURL }}">arrow_back</a>
+    {{ else }}
+    <a href="{{ .Site.BaseURL }}"><h1 class="blog-title">tad.codes</h1></a>
+    {{ end }}
+  </header>

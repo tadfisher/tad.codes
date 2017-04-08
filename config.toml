@@ -1,0 +1,21 @@
+languageCode = "en-us"
+title = "tad.codes"
+baseURL = "https://tad.codes/"
+theme = "gohugo-amp"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+    amp = true
+    ampCdnRoot = "https://cdn.ampproject.org/"
+    ampRelease = "v0"
+    ampElementsVersion = "0.1"
+
+    ampElements = ["amp-analytics"]
+
+    googleAnalytics = "UA-93523479-1"
+    publisherName = "Tad Fisher"
+
+    authorImage = "https://en.gravatar.com/userimage/14481851/b035ee6f2347ced121c77a33423121f4.png?s=96"
+    authorName = "Tad Fisher"
+    authorBio = "I work at <a href=\"https://www.simple.com/\">Simple</a> in Portland, OR."

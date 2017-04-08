@@ -1,0 +1,26 @@
+{
+  "name": "tad.codes",
+  "version": "1.0.0",
+  "description": "Tad Fisher's programming blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tadfisher/blog.git"
+  },
+  "keywords": [],
+  "author": "Tad Fisher",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/tadfisher/mdc-amp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-append": "^0.3.4",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^3.1.0",
+    "material-components-web": "^0.8.0"
+  }
+}
