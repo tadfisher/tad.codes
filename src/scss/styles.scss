@@ -32,7 +32,7 @@ $mdc-theme-background: #ECEFF1;
 body {
     > header {
         @include media(desktop) {
-            @include mdc-layout-grid(40px, 40px);
+            @include mdc-layout-grid(24px, 24px);
             height: 256px;
         }
 
@@ -43,6 +43,7 @@ body {
 
         @include media(phone) {
             @include mdc-layout-grid(16px, 16px);
+            height: 128px;
         }
     }
 }
@@ -92,6 +93,7 @@ article {
 
     @include media(phone) {
         @include mdc-layout-grid(16px, 16px);
+        margin-top: -72px;
 
         header {
             @include mdc-layout-grid-cell(16px, 4);
@@ -113,19 +115,13 @@ article {
     aside {
         @include mdc-layout-grid-cell-align(top);
 
-        p:not(:last-child) {
-            padding-bottom: 2rem;
+        time {
+            display: block;
         }
     }
 
     section {
         grid-row-end: span 2;
-
-        .content {
-            max-width: 30rem;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
         hr {
             margin-top: 63px;
@@ -135,9 +131,8 @@ article {
 
         pre code {
             display: block;
-            padding: 16px;
-            margin-top: 24px;
-            margin-bottom: 24px;
+            padding: 1rem;
+            overflow-x: auto;
         }
     }
 
@@ -173,7 +168,7 @@ article {
     }
 
     aside.meta {
-        p.date {
+        time {
             @include mdc-theme-prop(color, accent);
         }
         p.reading-time {
@@ -219,11 +214,7 @@ article {
 
 body {
     > header {
-        @include material-transition(height);
-
-        @include media(phone) {
-            @include mdc-elevation(4);
-        }
+        @include material-transition(height, padding);
 
         a.back {
             @include ripple(text-primary-on-dark);
@@ -245,7 +236,7 @@ article {
         @include mdc-elevation(2);
     }
 
-    @include material-transition(height, margin-top, max-width);
+    @include material-transition(margin-top, max-width, padding);
 
     section {
         hr {
@@ -295,13 +286,9 @@ article {
     }
 
     aside {
-        p {
-            @include type(body1);
+        p, time {
+            @include type(subheading1);
             font-family: 'Roboto Mono';
-
-            &.date {
-                font-weight: bold;
-            }
         }
     }
 
@@ -320,12 +307,8 @@ article {
             @include type(subheading1);
             padding-top: 0.813rem;
         }
-        h4 {
-            @include type(body2);
-            padding-top: 0.75rem;
-        }
         p {
-            @include type(body1);
+            @include type(subheading1);
         }
         pre {
             @include type(subheading1);
@@ -339,7 +322,7 @@ article {
             font-family: 'Roboto Mono';
         }
         .author-bio {
-            @include type(body1);
+            @include type(subheading1);
             font-family: 'Roboto Mono';
         }
     }

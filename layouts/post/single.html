@@ -6,7 +6,7 @@
       <h1>{{ .Title }}</h1>
     </header>
     <aside class="meta">
-        <p class="date">{{ .Date.Format "2006 January 01" }}</p>
+        <time itemprop="published" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 January 02" }}</time>
         {{ with .Params.blurb }}<p class="blurb">{{ . }}</p>{{ end }}
         <p class="reading-time">{{ .ReadingTime }} minute read</p>
     </aside>

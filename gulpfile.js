@@ -23,7 +23,7 @@ gulp.task('build:styles', function () {
 
     .pipe(replace('!important'))
 
-    .pipe(cleanCss())
+    .pipe(cleanCss({level: 2}))
 
     .pipe(append(styles.dest));
 });
