@@ -52,6 +52,7 @@ article {
     @include media(desktop) {
         @include mdc-layout-grid(40px, 40px, 960px);
         margin-top: -128px;
+        margin-bottom: 64px;
 
         header {
             @include mdc-layout-grid-cell(40px, 12);
@@ -73,6 +74,7 @@ article {
     @include media(tablet) {
         @include mdc-layout-grid(24px, 24px, 600px);
         margin-top: -72px;
+        margin-bottom: 64px;
 
         header {
             @include mdc-layout-grid-cell(24px, 8);
