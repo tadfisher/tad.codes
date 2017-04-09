@@ -42,6 +42,6 @@
     {{ if .IsPage }}
     <a class="back material-icons" aria-label="Back" href="{{ .Site.BaseURL }}">arrow_back</a>
     {{ else }}
-    <a href="{{ .Site.BaseURL }}"><h1 class="blog-title">tad.codes</h1></a>
+    <h1>{{ .Site.Title }}</h1>
     {{ end }}
   </header>
