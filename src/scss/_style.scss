@@ -1,0 +1,56 @@
+@import "@material/elevation/mixins";
+@import "@material/ripple/mixins";
+
+@mixin ripple($theme-style) {
+    @include mdc-ripple-base;
+    @include mdc-ripple-bg((pseudo: "::before", radius: 150%, theme-style: $theme-style));
+    @include mdc-ripple-fg((pseudo: "::after", radius: 150%, theme-style: $theme-style));
+}
+
+@mixin material-transition($properties...) {
+    @include media(desktop) {
+        transition-duration: 390ms;
+    }
+    @include media(tablet) {
+        transition-duration: 390ms;
+    }
+    @include media(phone) {
+        transition-duration: 300ms;
+    }
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition-property: $properties;
+}
+body {
+    > header {
+        @include material-transition(height, padding);
+
+        a.back {
+            @include ripple(text-primary-on-dark);
+            @include mdc-theme-prop(color, text-primary-on-dark);
+            display: block;
+            height: 24px;
+            text-decoration: none;
+            width: 24px;
+        }
+    }
+}
+
+article {
+    @include mdc-elevation(2);
+    @include material-transition(margin-top, max-width, padding);
+
+    section {
+        hr {
+            border: none;
+        }
+
+        pre code {
+            border-radius: 2px;
+        }
+
+    }
+}
+
+.author-image {
+    border-radius: 50%;
+}

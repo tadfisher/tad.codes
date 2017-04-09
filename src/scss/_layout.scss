@@ -1,0 +1,138 @@
+@import "@material/layout-grid/variables";
+@import "@material/layout-grid/mixins";
+
+@mixin media($size) {
+    @if $size == phone {
+        @media (max-width: map-get($mdc-layout-grid-breakpoints, tablet) - 1px) {
+            @content;
+        }
+    }
+    @if $size == tablet {
+        @media (min-width: map-get($mdc-layout-grid-breakpoints, tablet)) and (max-width: map-get($mdc-layout-grid-breakpoints, desktop) - 1px) {
+            @content;
+        }
+    }
+    @if $size == desktop {
+        @media (min-width: map-get($mdc-layout-grid-breakpoints, desktop)) {
+            @content;
+        }
+    }
+}
+
+body {
+    > header {
+        @include media(desktop) {
+            @include mdc-layout-grid(24px, 24px);
+            height: 256px;
+        }
+
+        @include media(tablet) {
+            @include mdc-layout-grid(24px, 24px);
+            height: 144px;
+        }
+
+        @include media(phone) {
+            @include mdc-layout-grid(16px, 16px);
+            height: 128px;
+        }
+    }
+}
+
+article {
+    @include media(desktop) {
+        @include mdc-layout-grid(40px, 40px, 960px);
+        margin-top: -128px;
+        margin-bottom: 64px;
+
+        header {
+            @include mdc-layout-grid-cell(40px, 12);
+        }
+
+        aside {
+            @include mdc-layout-grid-cell(40px, 4);
+        }
+
+        section {
+            @include mdc-layout-grid-cell(40px, 8);
+        }
+
+        footer {
+            @include mdc-layout-grid-cell(40px, 4);
+        }
+    }
+
+    @include media(tablet) {
+        @include mdc-layout-grid(24px, 24px, 600px);
+        margin-top: -72px;
+        margin-bottom: 64px;
+
+        header {
+            @include mdc-layout-grid-cell(24px, 8);
+        }
+
+        aside {
+            @include mdc-layout-grid-cell(24px, 8);
+        }
+
+        section {
+            @include mdc-layout-grid-cell(24px, 8);
+        }
+
+        footer {
+            @include mdc-layout-grid-cell(24px, 8);
+        }
+    }
+
+    @include media(phone) {
+        @include mdc-layout-grid(16px, 16px);
+        margin-top: -72px;
+
+        header {
+            @include mdc-layout-grid-cell(16px, 4);
+        }
+
+        aside {
+            @include mdc-layout-grid-cell(16px, 4);
+        }
+
+        section {
+            @include mdc-layout-grid-cell(16px, 4);
+        }
+
+        footer {
+            @include mdc-layout-grid-cell(16px, 8);
+        }
+    }
+
+    aside {
+        @include mdc-layout-grid-cell-align(top);
+
+        time {
+            display: block;
+        }
+    }
+
+    section {
+        grid-row-end: span 2;
+
+        hr {
+            margin-top: 63px;
+            margin-bottom: 64px;
+            height: 1px;
+        }
+
+        pre code {
+            display: block;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+    }
+
+    footer {
+        @include mdc-layout-grid-cell-align(bottom);
+
+        .author-image {
+            margin-bottom: 2rem;
+        }
+    }
+}

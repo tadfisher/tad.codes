@@ -1,0 +1,53 @@
+$mdc-theme-primary: #607D8B;
+$mdc-theme-accent: #F4511E;
+$mdc-theme-background: #ECEFF1;
+@import "@material/theme/mdc-theme";
+
+$background-light: #546E7A;
+$background-dark: #37474F;
+
+// Colorsk
+
+body {
+    background-color: $background-light;
+
+    > header {
+        background-color: $background-dark;
+
+        h1 {
+            @include mdc-theme-prop(color, text-icon-on-dark);
+        }
+    }
+}
+
+article {
+    @include mdc-theme-prop(background-color, background);
+    @include mdc-theme-prop(color, text-primary-on-background)
+
+    a {
+        @include mdc-theme-prop(color, accent);
+    }
+
+    aside.meta {
+        time {
+            @include mdc-theme-prop(color, accent);
+        }
+        p.reading-time {
+            @include mdc-theme-prop(color, text-secondary-on-background);
+        }
+    }
+
+    section {
+
+        hr {
+            @include mdc-theme-prop(background-color, text-icon-on-background);
+            //background-color: #B0BEC5;
+
+        }
+
+        pre code {
+            background-color: $background-dark;
+            @include mdc-theme-prop(color, text-primary-on-dark);
+        }
+    }
+}

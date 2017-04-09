@@ -1,0 +1,70 @@
+@import "@material/typography/mixins";
+
+@mixin type($style) {
+    @include mdc-typography($style);
+    @include mdc-typography-adjust-margin($style);
+}
+
+body {
+    @include mdc-typography-base;
+
+    > header {
+        h1 {
+            @include type(display1);
+            font-family: 'Roboto Mono';
+        }
+    }
+}
+
+article {
+    header {
+        h1 {
+            @include type(headline);
+            padding-top: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-family: 'Roboto Mono';
+        }
+    }
+
+    aside {
+        p, time {
+            @include type(subheading1);
+            font-family: 'Roboto Mono';
+        }
+    }
+
+    section {
+        h1 {
+            @include type(headline);
+            padding-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        h2 {
+            @include type(subheading2);
+            padding-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        h3 {
+            @include type(subheading1);
+            padding-top: 0.813rem;
+        }
+        p {
+            @include type(subheading1);
+        }
+        pre {
+            @include type(subheading1);
+            font-family: 'Roboto Mono';
+        }
+    }
+
+    footer {
+        .author-name {
+            @include type(title);
+            font-family: 'Roboto Mono';
+        }
+        .author-bio {
+            @include type(subheading1);
+            font-family: 'Roboto Mono';
+        }
+    }
+}
