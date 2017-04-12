@@ -1,3 +1,4 @@
+build/
+layouts/partials/stylesheet.html
 node_modules/
 public/
-layouts/partials/stylesheet.html

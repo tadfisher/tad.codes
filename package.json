@@ -15,12 +15,22 @@
   "license": "UNLICENSED",
   "homepage": "https://github.com/tadfisher/mdc-amp#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "cheerio": "^0.22.0",
+    "del": "^2.2.2",
+    "http2": "^3.3.6",
+    "gulp": "gulpjs/gulp.git#4.0",
     "gulp-append": "^0.3.4",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-connect": "^5.0.0",
     "gulp-clean-css": "^3.0.3",
+    "gulp-htmlmin": "^3.0.0",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^3.1.0",
-    "material-components-web": "^0.8.0"
+    "gulp-watch": "^4.3.11",
+    "material-components-web": "^0.8.0",
+    "map-stream": "^0.0.7",
+    "rxjs": "^5.3.0",
+    "rxjs-stream": "^1.0.4",
+    "uncss": "^0.14.1"
   }
 }

@@ -15,6 +15,7 @@ pygmentsUseClasses = true
 
     googleAnalytics = "UA-93523479-1"
     publisherName = "Tad Fisher"
+    themeColor = "#546E7A"
 
     authorImage = "https://en.gravatar.com/userimage/14481851/b035ee6f2347ced121c77a33423121f4.png?s=96"
     authorName = "Tad Fisher"

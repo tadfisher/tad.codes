@@ -1,32 +1,33 @@
 {{ if ne .Params.amp.enable false }}
 
 <!DOCTYPE html>
-<!--[if lt IE 8 ]><html {{ if isset $.Site.Params "amp" }}amp{{ end }} lang="en" class="no-js oldie"><![endif]-->
-<!--[if IE 8 ]><html {{ if isset $.Site.Params "amp" }}amp{{ end }} lang="en" class="no-js ie8"><![endif]-->
-<!--[if IE 9 ]><html {{ if isset $.Site.Params "amp" }}amp{{ end }} lang="en" class="no-js ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html {{ if isset $.Site.Params "amp" }}amp{{ end }} lang="{{ with $.Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}" class="no-js"><!--<![endif]-->
+<html amp lang="en">
 <head>
   <title>{{ .Title }}</title>
   <meta charset="utf-8">
 
-  {{ partial "amp/header" . }}
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Roboto+Mono|Material+Icons" />
 
+  {{ partial "amp/header" . }}
+
   <link rel="canonical" href="{{ .Permalink }}" />
-
-  <link rel="icon" href="/favicon.png" type="image/png" sizes="144x144" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-
-  {{ if .RSSLink }}
-  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-  <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-  {{ end }}
-
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="apple-mobile-web-app-title" content="tad.codes">
+  <meta name="application-name" content="tad.codes">
   <meta name="theme-color" content="{{ $.Site.Params.themeColor }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+  {{ if .RSSLink }}<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />{{ end }}
 
   {{ partial "seo/main" . }}
+
+  {{ partial "amp/boilerplate" . }}
+
+  <style amp-custom></style>
 </head>
 
 <body>
