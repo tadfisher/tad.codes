@@ -95,7 +95,7 @@ gulp.task('build:dev', gulp.series('clean', 'build:styles', 'hugo:drafts', 'mini
 gulp.task('build:prod', gulp.series('clean', 'build:styles', 'hugo:public', 'minify'));
 
 gulp.task('watch:dev', function() {
-  gulp.watch(['./content/**/*', './data/**/*', './layouts/**/*', './static/**/*', './themes/**/*'],
+  gulp.watch(['./content/**/*', './data/**/*', './layouts/**/*', './src/**/*', './static/**/*', './themes/**/*'],
              { ignored: 'layouts/partials/stylesheet.html', ignoreInitial: false }, gulp.series('build:dev'));
 });
 
