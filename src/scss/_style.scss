@@ -20,6 +20,7 @@
     transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
     transition-property: $properties;
 }
+
 body {
     > header {
         @include material-transition(height, padding);
@@ -36,8 +37,13 @@ body {
 }
 
 article {
+
     @include mdc-elevation(2);
     @include material-transition(margin-top, max-width, padding);
+
+    a {
+        text-decoration: none;
+    }
 
     section {
         hr {

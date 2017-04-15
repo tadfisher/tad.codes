@@ -1,3 +1,4 @@
+@import "mixins";
 @import "@material/typography/mixins";
 
 @mixin type($style) {
@@ -26,14 +27,21 @@ article {
         }
     }
 
-    aside {
-        p, time {
-            @include type(subheading1);
-            font-family: 'Roboto Mono';
-        }
+    code {
+        font-family: 'Roboto Mono', monospace;
     }
 
     section {
+        aside {
+            time, .reading-time {
+                @include type(subheading1);
+                font-family: 'Roboto Mono';
+            }
+            p {
+                margin-bottom: 1.813rem;
+            }
+        }
+
         h1 {
             @include type(headline);
             padding-top: 0.75rem;
@@ -61,10 +69,10 @@ article {
         .author-name {
             @include type(title);
             font-family: 'Roboto Mono';
+            margin-bottom: 0.1rem;
         }
         .author-bio {
             @include type(subheading1);
-            font-family: 'Roboto Mono';
         }
     }
 }

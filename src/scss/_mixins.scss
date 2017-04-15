@@ -1,0 +1,19 @@
+@import "@material/layout-grid/variables";
+
+@mixin media($size) {
+    @if $size == phone {
+        @media (max-width: map-get($mdc-layout-grid-breakpoints, tablet) - 1px) {
+            @content;
+        }
+    }
+    @if $size == tablet {
+        @media (min-width: map-get($mdc-layout-grid-breakpoints, tablet)) and (max-width: map-get($mdc-layout-grid-breakpoints, desktop) - 1px) {
+            @content;
+        }
+    }
+    @if $size == desktop {
+        @media (min-width: map-get($mdc-layout-grid-breakpoints, desktop)) {
+            @content;
+        }
+    }
+}

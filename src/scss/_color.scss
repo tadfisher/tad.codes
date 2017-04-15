@@ -5,8 +5,14 @@ $mdc-theme-background: #ECEFF1;
 
 $background-light: #546E7A;
 $background-dark: #37474F;
+$background-callout: #CFD8DC;
 
-// Colorsk
+// Colors
+
+@mixin callout() {
+    background-color: $background-callout;
+    @include mdc-theme-prop(color, text-primary-on-light);
+}
 
 body {
     background-color: $background-light;
@@ -26,28 +32,40 @@ article {
 
     a {
         @include mdc-theme-prop(color, accent);
+
+        &:hover {
+            background-color: $background-callout;
+        }
     }
 
-    aside.meta {
+    aside {
+        @include mdc-theme-prop(color, text-secondary-on-background);
+
         time {
             @include mdc-theme-prop(color, accent);
         }
-        p.reading-time {
-            @include mdc-theme-prop(color, text-secondary-on-background);
+        p.blurb {
+            @include mdc-theme-prop(color, text-primary-on-background);
         }
     }
 
+    code {
+        @include callout;
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
+
     section {
+        aside {
+            @include mdc-theme-prop(color, text-secondary-on-background);
+        }
 
         hr {
-            @include mdc-theme-prop(background-color, text-icon-on-background);
-            //background-color: #B0BEC5;
-
+            background-color: #B0BEC5;
         }
 
         pre code {
-            background-color: $background-dark;
-            @include mdc-theme-prop(color, text-primary-on-dark);
+            @include callout;
         }
     }
 }

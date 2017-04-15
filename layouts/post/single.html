@@ -5,15 +5,13 @@
     <header>
       <h1>{{ .Title }}</h1>
     </header>
-    <aside class="meta">
-        <time itemprop="published" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 January 02" }}</time>
+    <section class="content">
+      <aside class="meta">
+        <p><time itemprop="published" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006 January 02" }}</time></p>
         {{ with .Params.blurb }}<p class="blurb">{{ . }}</p>{{ end }}
         <p class="reading-time">{{ .ReadingTime }} minute read</p>
-    </aside>
-    <section>
-      <div class="content">
-        {{ .Content }}
-      </div>
+      </aside>
+      {{ .Content }}
     </section>
     <footer>
       <amp-img class="author-image" src="{{ $.Param "authorImage" }}" height="72" width="72">

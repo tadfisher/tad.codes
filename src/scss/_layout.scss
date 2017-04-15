@@ -1,23 +1,5 @@
-@import "@material/layout-grid/variables";
+@import "mixins";
 @import "@material/layout-grid/mixins";
-
-@mixin media($size) {
-    @if $size == phone {
-        @media (max-width: map-get($mdc-layout-grid-breakpoints, tablet) - 1px) {
-            @content;
-        }
-    }
-    @if $size == tablet {
-        @media (min-width: map-get($mdc-layout-grid-breakpoints, tablet)) and (max-width: map-get($mdc-layout-grid-breakpoints, desktop) - 1px) {
-            @content;
-        }
-    }
-    @if $size == desktop {
-        @media (min-width: map-get($mdc-layout-grid-breakpoints, desktop)) {
-            @content;
-        }
-    }
-}
 
 body {
     > header {
@@ -43,17 +25,32 @@ article {
         @include mdc-layout-grid(40px, 40px, 960px);
         margin-top: -128px;
         margin-bottom: 64px;
+        position: relative;
 
         header {
             @include mdc-layout-grid-cell(40px, 12);
         }
 
-        aside {
+        > aside {
             @include mdc-layout-grid-cell(40px, 4);
+            text-align: right;
         }
 
         section {
             @include mdc-layout-grid-cell(40px, 8);
+            grid-column-start: 5;
+
+            aside {
+                box-sizing: border-box;
+                float: left;
+                left: 0px;
+                margin-left: 40px;
+                margin-left: var(--mdc-layout-grid-gutter, 40px);
+                position: absolute;
+                text-align: right;
+                width: calc(33.33333% - 60px);
+                width: calc(33.33333% - var(--mdc-layout-grid-gutter, 40px) - var(--mdc-layout-grid-margin, 40px) / 2);
+            }
         }
 
         footer {
@@ -70,12 +67,17 @@ article {
             @include mdc-layout-grid-cell(24px, 8);
         }
 
-        aside {
+        > aside {
             @include mdc-layout-grid-cell(24px, 8);
         }
 
         section {
             @include mdc-layout-grid-cell(24px, 8);
+
+            aside {
+                display: inline-block;
+                padding: 1rem;
+            }
         }
 
         footer {
@@ -91,7 +93,7 @@ article {
             @include mdc-layout-grid-cell(16px, 4);
         }
 
-        aside {
+        > aside {
             @include mdc-layout-grid-cell(16px, 4);
         }
 
@@ -104,12 +106,8 @@ article {
         }
     }
 
-    aside {
+    > aside {
         @include mdc-layout-grid-cell-align(top);
-
-        time {
-            display: block;
-        }
     }
 
     section {
